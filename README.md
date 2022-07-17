@@ -1,11 +1,18 @@
-theme: jekyll-theme-minimal
-title: Octocat's homepage
-description: Bookmark this to keep an eye on my project updates!
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
 
-<script>
-  
-  alert('test');
-</script>
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
 
-<iframe src="https://www.w3schools.com" title="W3Schools Free Online Web Tutorials">
-</iframe>
+
+var client = new HttpClient();
+client.get('https://denaro-node.gaetano.eu.org', function(response) {
+    // do something with response
+});
