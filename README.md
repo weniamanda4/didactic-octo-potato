@@ -1,3 +1,4 @@
+<script>
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -11,8 +12,8 @@ var HttpClient = function() {
     }
 }
 
-
 var client = new HttpClient();
 client.get('https://denaro-node.gaetano.eu.org', function(response) {
     // do something with response
 });
+</script>
